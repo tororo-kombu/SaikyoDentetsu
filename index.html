@@ -31,10 +31,10 @@
 
     <main id="top">
         <div class="hero" id="hero" aria-label="トップ画像">
-            <div class="slide on"><em>IMAGE 01</em><b>あかね色の街を、<br>ゆっくり走る。</b></div>
+            <div class="slide on"><em>IMAGE 01</em><b>Living in Saikyo.<br>Living in today.</b></div>
             <div class="slide"><em>IMAGE 02</em><b>新型車両「A3000系」<br>デビュー</b></div>
-            <div class="slide"><em>IMAGE 03</em><b>湾岸線で見る、<br>朝焼けの海。</b></div>
-            <div class="slide"><em>IMAGE 04</em><b>バスと電車を、<br>もっとひとつに。</b></div>
+            <div class="slide"><em>IMAGE 03</em><b>バスと電車、暮らしを<br>もっとひとつに。</b></div>
+            <div class="slide"><em>IMAGE 04</em><b>埼玉に観光という<br>新たな選択肢</b></div>
             <div class="dots"><i class="on"></i><i></i><i></i><i></i></div>
         </div>
 
@@ -119,7 +119,7 @@
         $$('#menu a').forEach(a => a.onclick = () => { menu.classList.remove('open'); burger.setAttribute('aria-expanded', false) });
         // slider
         const sl = $$('.slide'), dt = $$('.dots i'); let n = 0;
-        setInterval(() => { sl[n].classList.remove('on'); dt[n].classList.remove('on'); n = (n + 1) % sl.length; sl[n].classList.add('on'); dt[n].classList.add('on') }, 3000);
+        setInterval(() => { sl[n].classList.remove('on'); dt[n].classList.remove('on'); n = (n + 1) % sl.length; sl[n].classList.add('on'); dt[n].classList.add('on') }, 5000);
         // tabs
         const D = {
             rail: {
