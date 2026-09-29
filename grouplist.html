@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+    <meta name="robots" content="noindex, nofollow">
+    <title>埼京電鉄 | SAIKYO RAILWAY</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<style>
+    .feed{
+        max-height: none;
+    }
+</style>
+
+<body>
+    <header>
+        <a href="../../../../../" class="logo"><i></i>
+            <div>埼京電鉄<small>SAIKYO RAILWAY</small></div>
+        </a>
+        <button class="burger" id="burger" aria-label="メニュー" aria-expanded="false"
+            aria-controls="menu"><span></span><span></span><span></span></button>
+    </header>
+
+    <nav id="menu" aria-label="メインメニュー">
+        <a href="#info">運行情報</a>
+        <a href="#info">運賃・時刻表</a>
+        <a href="#info">路線図</a>
+        <a href="#info">駅・施設案内</a>
+        <a href="#info">お得なきっぷ</a>
+        <a href="#news">ニュース・キャンペーン</a>
+        <a href="#company">企業情報</a>
+        <a href="#footer">お問い合わせ</a>
+    </nav>
+
+    <main id="top">
+        <section id="news">
+            <h2>グループ会社一覧 <span>GROUP LIST</span></h2>
+            <div class="filter" id="filter">
+                <button aria-pressed="true" data-c="all">すべて</button>
+                <button aria-pressed="false" data-c="交通･運輸">交通･運輸</button>
+                <button aria-pressed="false" data-c="不動産">不動産</button>
+                <button aria-pressed="false" data-c="商業･小売">商業･小売</button>
+                <button aria-pressed="false" data-c="飲食">飲食</button>
+                <button aria-pressed="false" data-c="レジャー･ホテル">レジャー･ホテル</button>
+                <button aria-pressed="false" data-c="サービス">サービス</button>
+                <button aria-pressed="false" data-c="建設">建設</button>
+                <button aria-pressed="false" data-c="製造">製造</button>
+                <button aria-pressed="false" data-c="その他">その他</button>
+            </div>
+            <div class="feed" id="feed"></div>
+        </section>
+    </main>
+
+    <footer id="footer">
+        <a href="#top" class="logo"><i></i>
+            <div>埼京電鉄<small style="color:inherit;opacity:.7">AKANE RAILWAY</small></div>
+        </a>
+        <div class="fl">
+            <a href="#info">運行情報</a><a href="#news">ニュース</a><a href="#company">企業情報</a><a href="#footer">お問い合わせ</a><a
+                href="#footer">サイトマップ</a><a href="#footer">プライバシーポリシー</a><a href="#footer">ご利用にあたって</a>
+        </div>
+        <small>© AKANE RAILWAY Co., Ltd. This is a fictional company.</small>
+    </footer>
+
+    <script>
+        const $ = s => document.querySelector(s), $$ = s => [...document.querySelectorAll(s)];
+        // menu
+        const burger = $('#burger'), menu = $('#menu');
+        burger.onclick = () => { const o = menu.classList.toggle('open'); burger.setAttribute('aria-expanded', o) };
+        $$('#menu a').forEach(a => a.onclick = () => { menu.classList.remove('open'); burger.setAttribute('aria-expanded', false) });
+
+        // news
+        const N = [
+            ['交通･運輸', '(株)埼京バス', '🚃', '#'],
+            ['交通･運輸', '(株)埼京タクシー', '🚃', '#'],
+            ['交通･運輸', '草軽高原鉄道(株)', '🚃', '#'],
+            ['交通･運輸', '沖縄鉄道(株)', '🚃', '#'],
+            ['交通･運輸', '沖縄鉄道バス(株)', '🚃', '#'],
+            ['不動産', '(株)埼京不動産', '🌆', '#'],
+            ['不動産', '(株)埼京ハウスエステート', '🌆', '#'],
+            ['不動産', '(株)相上不動産', '🌆', '#'],
+            ['不動産', '(株)埼京新宿ステーションスクエア', '🌆', '#'],
+            ['商業･小売', '(株)埼京百貨店','🧺', '#'],
+            ['商業･小売', '(株)アトムリテール','🧺', '#'],
+            ['商業･小売', '(株)ビットタウン','🧺', '#'],
+            ['商業･小売', '埼京ステーションリテイリング(株)','🧺', '#'],
+            ['商業･小売', '(株)フレンドマート','🧺', '#'],
+            ['商業･小売', '(株)NGストア','🧺', '#'],
+            ['飲食', '(株)しゃぶにっく','🍴', '#'],
+            ['飲食', '(株)埼京フードFC','🍴', '#'],
+            ['飲食', '天下単品(株)','🍴', '#'],
+            ['飲食', '(株)餃子の歩','🍴', '#'],
+            ['レジャー･ホテル', '(株)埼京INN','🏨', '#'],
+            ['レジャー･ホテル', '半出来温泉グランドラグジュアリーリゾート(株)','🏨', '#'],
+            ['レジャー･ホテル', '(株)浮間温泉爆発の湯','🏨', '#'],
+            ['レジャー･ホテル', '(株)ウィーンでルスチュウランド','🏨', '#'],
+            ['サービス', '(株)埼京エンターテインメント','🤝', '#'],
+            ['サービス', '(株)睡眠代行モーネル','🤝', '#'],
+            ['建設', '(株)埼京建設','⚒️', '#'],
+            ['製造', '大日本爪とぎ(株)','🏭️', '#'],
+            ['製造', 'ワールドユナイテッド豆もやしホールディングス(株)','🏭️', '#'],
+            ['その他', '学校法人目白基本大学高等学校','🔴', '#'],
+            ['その他', '学校法人ふたば幼稚園','🔴', '#'],
+        ];
+            
+        $('#feed').innerHTML = N.map(n => `<article class="post" data-c="${n[0]}"><div class="av">${n[2]}</div><div class="pb"><div class="pn"><b>${n[0]}</b></div><p class="pt"><b><a href="${n[3]}">${n[1]}↗</a></b><br></p></div></article>`).join('');
+        $$('#filter button').forEach(b => b.onclick = () => {
+            $$('#filter button').forEach(x => x.setAttribute('aria-pressed', x === b));
+            $$('.post').forEach(p => p.hidden = b.dataset.c !== 'all' && p.dataset.c !== b.dataset.c)
+        });
+    </script>
+</body>
+
+</html>
