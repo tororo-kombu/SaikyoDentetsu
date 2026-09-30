@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+    <meta name="robots" content="noindex, nofollow">
+    <title>埼京電鉄 | SAIKYO RAILWAY</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+
+<style>
+    /* ページ見出し */
+    .page-head {
+        padding: 80px var(--gap) 56px;
+        border-bottom: 2px solid var(--line);
+        margin-bottom: 64px
+    }
+
+    .page-en {
+        font-size: 12px;
+        letter-spacing: .4em;
+        color: var(--ac);
+        font-weight: 700
+    }
+
+    .page-head h1 {
+        font-size: clamp(44px, 7vw, 88px);
+        font-weight: 900;
+        line-height: 1.1;
+        letter-spacing: .08em;
+        margin: 2px 0 15px -5px;
+    }
+
+    .page-lead {
+        color: var(--sub);
+        max-width: 560px
+    }
+
+    /* タイムライン */
+    .tl {
+        position: relative;
+        list-style: none;
+        max-width: 900px
+    }
+
+    .tl::before {
+        content: "";
+        position: absolute;
+        left: 170px;
+        top: 0;
+        bottom: 0;
+        width: 2px;
+        background: var(--line)
+    }
+
+    .tl-item {
+        position: relative;
+        display: grid;
+        grid-template-columns: 170px 1fr;
+        gap: 0 56px;
+        padding-bottom: 72px;
+        opacity: 0;
+        transform: translateY(24px);
+        transition: opacity .7s, transform .7s
+    }
+
+    .tl-item.in {
+        opacity: 1;
+        transform: none
+    }
+
+    .tl-item::before {
+        content: "";
+        position: absolute;
+        left: 163px;
+        top: 22px;
+        width: 16px;
+        height: 16px;
+        border-radius: 50%;
+        background: var(--bg);
+        border: 2px solid var(--line)
+    }
+
+    .tl-now::before {
+        background: var(--ac);
+        border-color: var(--ac);
+        box-shadow: 0 0 0 6px rgba(190, 32, 0, .18)
+    }
+
+    .tl-year span {
+        display: block;
+        text-align: right;
+        font-family: "Hiragino Mincho ProN", "Yu Mincho", "Noto Serif JP", serif;
+        font-size: 44px;
+        font-weight: 700;
+        line-height: 1.2;
+        letter-spacing: .02em;
+        padding-right: 24px
+    }
+
+    .tl-now .tl-year span {
+        color: var(--ac)
+    }
+
+    .tl-body {
+        padding-left: 40px
+    }
+
+    .tl-body h3 {
+        font-size: 20px;
+        font-weight: 900;
+        margin: 6px 0 8px;
+        padding-bottom: 8px;
+        border-bottom: 1px solid var(--line);
+        display: inline-block
+    }
+
+    .tl-body p {
+        color: #666;
+        max-width: 520px
+    }
+
+    .tl-img {
+        margin-top: 20px;
+        max-width: 520px;
+        min-height: 100px;
+        border-radius: 16px;
+        background: linear-gradient(135deg, #222, #777);
+        display: flex;
+        align-items: flex-end;
+        color: #fff;
+        font-size: 11px;
+        letter-spacing: .3em;
+        position: relative;
+        overflow: hidden
+    }
+    .tl-img img{
+        width: 100%;
+    }
+
+
+    @media (max-width:900px) {
+        .page-head {
+            padding: 48px var(--gap) 40px;
+            margin-bottom: 48px
+        }
+
+        .tl::before {
+            left: 7px
+        }
+
+        .tl-item {
+            grid-template-columns: 1fr;
+            padding-left: 36px;
+            padding-bottom: 56px
+        }
+
+        .tl-item::before {
+            left: 0;
+            top: 14px
+        }
+
+        .tl-year span {
+            text-align: left;
+            padding: 0;
+            font-size: 36px
+        }
+
+        .tl-body {
+            padding-left: 0
+        }
+    }
+
+    @media (prefers-reduced-motion:reduce) {
+        .tl-item {
+            opacity: 1;
+            transform: none;
+            transition: none
+        }
+    }
+</style>
+
+<body>
+    <header>
+        <a href="index.html" class="logo"><i></i>
+            <div>埼京電鉄<small>SAIKYO RAILWAY</small></div>
+        </a>
+        <button class="burger" id="burger" aria-label="メニュー" aria-expanded="false"
+            aria-controls="menu"><span></span><span></span><span></span></button>
+    </header>
+
+    <nav id="menu" aria-label="メインメニュー">
+        <a href="#info">運行情報</a>
+        <a href="#info">運賃・時刻表</a>
+        <a href="#info">路線図</a>
+        <a href="#info">駅・施設案内</a>
+        <a href="#info">お得なきっぷ</a>
+        <a href="#news">ニュース・キャンペーン</a>
+        <a href="#company">企業情報</a>
+        <a href="#footer">お問い合わせ</a>
+    </nav>
+
+    <main id="top">
+        <div class="page-head">
+            <p class="page-en">HISTORY</p>
+            <h1>沿革</h1>
+            <p class="page-lead">1902年の創業から、120年以上。<br>埼京電鉄は、街とともに歩んできました。</p>
+        </div>
+
+        <section class="history">
+            <ol class="tl">
+                <li class="tl-item">
+                    <div class="tl-year"><span>1902</span></div>
+                    <div class="tl-body">
+                        <h3>大宮川越軌道 創業</h3>
+                        <p>鉄道による運輸が主流になりつつあった明治の時代。大宮と川越を繋ぐことを目的とし中尾 虎麿率いるメンバーによって浦和川越軌道が設立された。</p>
+                        <div class="tl-img">IMAGE</div>
+                    </div>
+                </li>
+                <li class="tl-item">
+                    <div class="tl-year"><span>1904</span></div>
+                    <div class="tl-body">
+                        <h3>電気供給事業の開始</h3>
+                        <p>埼玉県下初の100kW出力の発電機2基による川越火力発電所（出力260kW）を建設。<br>翌年1月から川越町内431戸での電灯供給を開始した。</p>
+                    </div>
+                </li>
+                <li class="tl-item">
+                    <div class="tl-year"><span>1906</span></div>
+                    <div class="tl-body">
+                        <h3>川越久保町(現:埼京川越)-大宮間が開業</h3>
+                        <p>当初馬車軌道での開業を予定していたが電気供給事業の参入に合わせ計画を変更。埼玉県で最初の電化路線として開業した。</p>
+                        <div class="tl-img"><img src="img/img_history_1-2.jpg" alt=""></div>
+                        <p>開業時の電車と大宮駅の様子</p>
+                    </div>
+                </li>
+                <li class="tl-item">
+                    <div class="tl-year"><span>1908</span></div>
+                    <div class="tl-body">
+                        <h3>東京への延伸免許を取得</h3>
+                        <p>電気供給事業は盛業であったが鉄軌道の収益は苦しい状況であった。そこで利便性改善による乗客数増加策として1907年大宮から都内までの路線計画を打ち出し、翌年には省線西側にある与野、浦和、蕨、板橋の市街地付近を通り大塚駅で山手線と接続し、小石川春日付近に至る路線の免許が状下された。</p>
+                        <div class="tl-img">IMAGE</div>
+                    </div>
+                </li>
+                <li class="tl-item">
+                    <div class="tl-year"><span>1911</span></div>
+                    <div class="tl-body">
+                        <h3>大宮-新浦和(現:埼京浦和)間が開業</h3>
+                        <p>社名を埼京電気軌道に変更し開業した。当時県下最大都市であった川越、交通の要衝大宮、県庁所在地の浦和がつながり利用客は大きく増加した。</p>
+                        <div class="tl-img"><img src="img/img_sec05_001.avif" alt=""></div>
+                        <p>2代目の車両</p>
+                    </div>
+                </li>
+                <li class="tl-item">
+                    <div class="tl-year"><span>1919</span></div>
+                    <div class="tl-body">
+                        <h3>新浦和(現:埼京浦和)-戸田間が開業</h3>
+                        <p>この時点で資金難に悩まされており、新規開業区間は計画では複線だったが急遽単線とし、蕨宿(現:埼京蕨)駅の建設資金のために創業者の中尾虎麿は自身の保有する家を売却した。</p>
+                    </div>
+                </li>
+                <li class="tl-item">
+                    <div class="tl-year"><span>1923</span></div>
+                    <div class="tl-body">
+                        <h3>不動産事業の開始</h3>
+                        <p>板橋区エリア開業予定の本線沿線での住宅地の分譲を開始。同年に発生した関東大震災による郊外の住宅需要の高まりの影響もあり成功を収め同事業を拡大。土地を担保に銀行からも多額の融資を受けた。</p>
+                    </div>
+                </li>
+                <li class="tl-item">
+                    <div class="tl-year"><span>1923</span></div>
+                    <div class="tl-body">
+                        <h3>池袋-志村一里塚間が開業</h3>
+                        <p>荒川放水路が建設途中であったため先に都心側からの建設としたが、小石川春日をターミナルとする計画は頓挫しスペースに余裕のあった池袋駅にターミナルが変更された。</p>
+                        <div class="tl-img">IMAGE</div>
+                    </div>
+                </li>
+                <li class="tl-item">
+                    <div class="tl-year"><span>1924</span></div>
+                    <div class="tl-body">
+                        <h3>武州鉄道を合併する</h3>
+                        <p>蓮田から神根駅(現:西立野)までの路線を保有していた武州鉄道を合併し、同路線を蓮田線に名称変更。</p>
+                    </div>
+                </li>
+                <li class="tl-item">
+                    <div class="tl-year"><span>1925</span></div>
+                    <div class="tl-body">
+                        <h3>蓮田線を神根から埼京川口まで延伸開業</h3>
+                        <p>このとき同路線は全線が電化された。</p>
+                    </div>
+                </li>
+                <li class="tl-item">
+                    <div class="tl-year"><span>1929</span></div>
+                    <div class="tl-body">
+                        <h3>バス事業の開始</h3>
+                        <p>路線沿線にバス路線を展開した。</p>
+                    </div>
+                </li>
+                <li class="tl-item">
+                    <div class="tl-year"><span>1930</span></div>
+                    <div class="tl-body">
+                        <h3>埼京本線が全線開通</h3>
+                        <p>志村一里塚-戸田間の開業により埼京本線が全線開通した。<br>これを記念して創業者の中尾虎麿は家を買い戻した。</p>
+                        <div class="tl-img"><img src="img/img_sec03_002.avif" alt=""></div>
+                        <p>開業時の池袋駅舎。この時点では駅舎もホームも現在より100メートルほど北に位置した。</p>
+                    </div>
+                </li>
+                <li class="tl-item">
+                    <div class="tl-year"><span>1931</span></div>
+                    <div class="tl-body">
+                        <h3>蓮田線が全線開通</h3>
+                        <p>埼京川口-埼京板橋間が開業し蓮田線が全線開通した。</p>
+                        <div class="tl-img"><img src="img/img_sec04_003.avif" alt=""></div>
+                        <p>建設中の荒川橋梁</p>
+                    </div>
+                </li>
+                <li class="tl-item">
+                    <div class="tl-year"><span>1931</span></div>
+                    <div class="tl-body">
+                        <h3>埼京百貨店池袋店がオープン</h3>
+                        <p>駅直結型の百貨店としてオープンし大いに賑わった。</p>
+                        <div class="tl-img"><img src="img/hyakkaten.png" alt=""></div>
+                        <p>この建物のすぐ裏にホームが設置された</p>
+                    </div>
+                </li>
+                <li class="tl-item">
+                    <div class="tl-year"><span>1932</span></div>
+                    <div class="tl-body">
+                        <h3>埼京山手線の計画を開始</h3>
+                        <p>東京の西側(山手)の大きな発展を見据え渋谷駅までの乗り入れを計画。</p>
+                    </div>
+                </li>
+                <li class="tl-item">
+                    <div class="tl-year"><span>1935</span></div>
+                    <div class="tl-body">
+                        <h3>埼京百貨店新宿店がオープン</h3>
+                        <p>池袋店の成功を受け続けて新宿店をオープンした。また、新宿までの路線延伸を見据えて建物2階はホームが設置できる構造で建設された。</p>
+                        <div class="tl-img"><img src="img/Hankyu_Advertisement_in_1936.jpg" alt=""></div>
+                        <p>当時としてはかなり巨大な建物であった。</p>
+                    </div>
+                </li>
+                <li class="tl-item">
+                    <div class="tl-year"><span>1937</span></div>
+                    <div class="tl-body">
+                        <h3>埼京山手線が新宿駅まで開業</h3>
+                        <p>2年前に開業した埼京百貨店新宿店に乗り入れる形で新宿駅が開業。正式名称は埼京山手線だが当時から全列車が本線から直通運転をしているため本線として案内されている。<br>またこれに合わせて電車の長編成化や複線化が実施された。</p>
+                        <div class="tl-img"><img src="img/Hankyu_Advertisement_in_1936.jpg" alt=""></div>
+                        <p>当時としてはかなり巨大な建物であった。</p>
+                    </div>
+                </li>
+                <li class="tl-item">
+                    <div class="tl-year"><span>1940</span></div>
+                    <div class="tl-body">
+                        <h3>社名を埼京電気鉄道株式会社に変更</h3>
+                    </div>
+                </li>
+                <li class="tl-item">
+                    <div class="tl-year"><span>1942</span></div>
+                    <div class="tl-body">
+                        <h3>東武鉄道に合併</h3>
+                        <p>陸上交通事業調整法施行による戦時統合として東武鉄道に吸収合併された。</p>
+                    </div>
+                </li>
+                <li class="tl-item">
+                    <div class="tl-year"><span>1946</span></div>
+                    <div class="tl-body">
+                        <h3>東武鉄道から再独立</h3>
+                        <p>終戦後、私鉄分割への機運の高まりを受け再独立をした。このときに設立された株式会社埼京電気鉄道が現在の当社である。</p>
+                    </div>
+                </li>
+                <li class="tl-item">
+                    <div class="tl-year"><span>1948</span></div>
+                    <div class="tl-body">
+                        <h3>東京証券取引所上場</h3>
+                    </div>
+                </li>
+                <li class="tl-item">
+                    <div class="tl-year"><span>1950</span></div>
+                    <div class="tl-body">
+                        <h3>バス事業の大規模拡大</h3>
+                        <p>終戦後に道路整備が大きく進んだことを受け路線バスの路線網を埼玉県を中心に大規模拡大した。また、沿線などから観光地を結ぶバス路線やバスツアー事業も開始した。</p>
+                        <div class="tl-img"><img src="" alt=""></div>
+                        <p>キャプション</p>
+                    </div>
+                </li>
+
+                <li class="tl-item tl-now">
+                    <div class="tl-year"><span>2026</span></div>
+                    <div class="tl-body">
+                        <h3>現在</h3>
+                        <p>これからも、街とともに。</p>
+                    </div>
+                </li>
+            </ol>
+        </section>
+    </main>
+
+    <footer id="footer">
+        <a href="#top" class="logo"><i></i>
+            <div>埼京電鉄<small style="color:inherit;opacity:.7">AKANE RAILWAY</small></div>
+        </a>
+        <div class="fl">
+            <a href="#info">運行情報</a><a href="#news">ニュース</a><a href="#company">企業情報</a><a href="#footer">お問い合わせ</a><a
+                href="#footer">サイトマップ</a><a href="#footer">プライバシーポリシー</a><a href="#footer">ご利用にあたって</a>
+        </div>
+        <small>© SAIKYO DENTETSU Co., Ltd. This is a fictional company.</small>
+    </footer>
+
+    <script>
+        const burger = document.getElementById('burger'), menu = document.getElementById('menu');
+        burger.onclick = () => { const o = menu.classList.toggle('open'); burger.setAttribute('aria-expanded', o) };
+        // スクロールに合わせてフェードイン
+        const io = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target) } }), { threshold: .2 });
+        document.querySelectorAll('.tl-item').forEach(el => io.observe(el));
+    </script>
+</body>
+
+</html>

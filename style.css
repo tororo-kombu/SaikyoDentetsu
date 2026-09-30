@@ -78,11 +78,11 @@ header {
     z-index: 30;
     height: calc(var(--hh) + env(safe-area-inset-top, 0px));
     padding: env(safe-area-inset-top, 0px) 20px 0;
-    background: #ffffffc5;
+    background: #ffffffcc;
     display: flex;
     align-items: center;
     justify-content: space-between;
-    backdrop-filter: blur(5px);
+    backdrop-filter: blur(2px);
 }
 
 .logo {
@@ -171,10 +171,10 @@ nav {
     left: 0;
     bottom: 0;
     width: var(--nw);
-    background: #ffffffc5;
+    background: #ffffffcc;
     overflow-y: auto;
     z-index: 20;
-    backdrop-filter: blur(5px);
+    backdrop-filter: blur(2px);
 }
 
 nav a {
@@ -491,16 +491,18 @@ h2::before {
 
 .filter button {
     border: 2px solid var(--line);
-    border-radius: 999px;
+    border-radius: 20px;
     padding: 6px 18px;
     font-weight: 700;
-    font-size: 14px
+    font-size: 14px;
+    transition: 150ms;
 }
 
 .filter button[aria-pressed="true"] {
     background: var(--ac);
     border-color: var(--ac);
-    color: #fff
+    color: #fff;
+    border-radius: 12px;
 }
 
 .feed {
@@ -743,4 +745,25 @@ footer small {
     h2 {
         font-size: 24px
     }
+}
+
+
+
+
+/*table*/
+table {
+    width: 100%;
+    border-collapse: collapse;
+    font-family: sans-serif;
+}
+
+th, td {
+    padding: 12px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+
+th {
+    background-color: #f4f4f4;
+    font-weight: bold;
 }
