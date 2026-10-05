@@ -8,33 +8,13 @@
     <title>埼京電鉄 | SAIKYO RAILWAY</title>
     <link rel="stylesheet" href="style.css">
 </head>
-
 <body>
-    <header>
-        <a href="index.html" class="logo"><i></i>
-            <div>埼京電鉄<small>SAIKYO RAILWAY</small></div>
-        </a>
-        <button class="burger" id="burger" aria-label="メニュー" aria-expanded="false"
-            aria-controls="menu"><span></span><span></span><span></span></button>
-    </header>
-
-    <nav id="menu" aria-label="メインメニュー">
-        <a href="#info">運行情報</a>
-        <a href="#info">運賃・時刻表</a>
-        <a href="#info">路線図</a>
-        <a href="#info">駅・施設案内</a>
-        <a href="#info">お得なきっぷ</a>
-        <a href="#news">ニュース・キャンペーン</a>
-        <a href="#company">企業情報</a>
-        <a href="#footer">お問い合わせ</a>
-    </nav>
-
     <main id="top">
         <div class="hero" id="hero" aria-label="トップ画像">
-            <div class="slide on"><em>IMAGE 01</em><b>Living in Saikyo.<br>Living in today.</b></div>
-            <div class="slide"><em>IMAGE 02</em><b>新型車両「A3000系」<br>デビュー</b></div>
-            <div class="slide"><em>IMAGE 03</em><b>バスと電車、暮らしを<br>もっとひとつに。</b></div>
-            <div class="slide"><em>IMAGE 04</em><b>埼玉に観光という<br>新たな選択肢</b></div>
+            <div class="slide on"><img src="img/eb4f4307-8180-45af-a52f-f1608ca1acaf.png" alt=""><em>IMAGE 01</em><b>Living in Saikyo.<br>Living in today.</b></div>
+            <div class="slide"><img src="img/eb4f4307-8180-45af-a52f-f1608ca1acaf.png" alt=""><em>IMAGE 02</em><b>新型車両「A3000系」<br>デビュー</b></div>
+            <div class="slide"><img src="img/eb4f4307-8180-45af-a52f-f1608ca1acaf.png" alt=""><em>IMAGE 03</em><b>バスと電車、暮らしを<br>もっとひとつに。</b></div>
+            <div class="slide"><img src="img/eb4f4307-8180-45af-a52f-f1608ca1acaf.png" alt=""><em>IMAGE 04</em><b>埼玉に観光という<br>新たな選択肢</b></div>
             <div class="dots"><i class="on"></i><i></i><i></i><i></i></div>
         </div>
 
@@ -100,23 +80,11 @@
         </section>
     </main>
 
-    <footer id="footer">
-        <a href="#top" class="logo"><i></i>
-            <div>埼京電鉄<small style="color:inherit;opacity:.7">AKANE RAILWAY</small></div>
-        </a>
-        <div class="fl">
-            <a href="#info">運行情報</a><a href="#news">ニュース</a><a href="#company">企業情報</a><a href="#footer">お問い合わせ</a><a
-                href="#footer">サイトマップ</a><a href="#footer">プライバシーポリシー</a><a href="#footer">ご利用にあたって</a>
-        </div>
-        <small>© SAIKYO DENTETSU Co., Ltd. This is a fictional company.</small>
-    </footer>
-
+    <div id="site-header"></div>
+    <div id="site-footer"></div>
+    <script src="components.js"></script>
     <script>
         const $ = s => document.querySelector(s), $$ = s => [...document.querySelectorAll(s)];
-        // menu
-        const burger = $('#burger'), menu = $('#menu');
-        burger.onclick = () => { const o = menu.classList.toggle('open'); burger.setAttribute('aria-expanded', o) };
-        $$('#menu a').forEach(a => a.onclick = () => { menu.classList.remove('open'); burger.setAttribute('aria-expanded', false) });
         // slider
         const sl = $$('.slide'), dt = $$('.dots i'); let n = 0;
         setInterval(() => { sl[n].classList.remove('on'); dt[n].classList.remove('on'); n = (n + 1) % sl.length; sl[n].classList.add('on'); dt[n].classList.add('on') }, 5000);

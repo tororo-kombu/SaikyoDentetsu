@@ -16,25 +16,6 @@
 </style>
 
 <body>
-    <header>
-        <a href="index.html" class="logo"><i></i>
-            <div>埼京電鉄<small>SAIKYO RAILWAY</small></div>
-        </a>
-        <button class="burger" id="burger" aria-label="メニュー" aria-expanded="false"
-            aria-controls="menu"><span></span><span></span><span></span></button>
-    </header>
-
-    <nav id="menu" aria-label="メインメニュー">
-        <a href="#info">運行情報</a>
-        <a href="#info">運賃・時刻表</a>
-        <a href="#info">路線図</a>
-        <a href="#info">駅・施設案内</a>
-        <a href="#info">お得なきっぷ</a>
-        <a href="#news">ニュース・キャンペーン</a>
-        <a href="#company">企業情報</a>
-        <a href="#footer">お問い合わせ</a>
-    </nav>
-
     <main id="top">
         <section id="news">
             <h2>グループ会社一覧 <span>GROUP LIST</span></h2>
@@ -54,24 +35,11 @@
         </section>
     </main>
 
-    <footer id="footer">
-        <a href="#top" class="logo"><i></i>
-            <div>埼京電鉄<small style="color:inherit;opacity:.7">AKANE RAILWAY</small></div>
-        </a>
-        <div class="fl">
-            <a href="#info">運行情報</a><a href="#news">ニュース</a><a href="#company">企業情報</a><a href="#footer">お問い合わせ</a><a
-                href="#footer">サイトマップ</a><a href="#footer">プライバシーポリシー</a><a href="#footer">ご利用にあたって</a>
-        </div>
-        <small>© SAIKYO DENTETSU Co., Ltd. This is a fictional company.</small>
-    </footer>
-
+    <div id="site-header"></div>
+    <div id="site-footer"></div>
+    <script src="components.js"></script>
     <script>
         const $ = s => document.querySelector(s), $$ = s => [...document.querySelectorAll(s)];
-        // menu
-        const burger = $('#burger'), menu = $('#menu');
-        burger.onclick = () => { const o = menu.classList.toggle('open'); burger.setAttribute('aria-expanded', o) };
-        $$('#menu a').forEach(a => a.onclick = () => { menu.classList.remove('open'); burger.setAttribute('aria-expanded', false) });
-
         // news
         const N = [
             ['交通･運輸', '(株)埼京バス', '🚃', '#'],
