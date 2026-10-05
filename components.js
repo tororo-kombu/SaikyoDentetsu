@@ -8,6 +8,7 @@
     ['駅・施設案内', 'index.html#info'],
     ['お得なきっぷ', 'index.html#info'],
     ['ニュース・キャンペーン', 'index.html#news'],
+    ['埼京電鉄マニア', 'saikyo-fan.html'],
     ['企業情報', 'company-overview.html'],
     ['お問い合わせ', '#footer'],
   ];

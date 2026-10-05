@@ -11,10 +11,10 @@
 <body>
     <main id="top">
         <div class="hero" id="hero" aria-label="トップ画像">
-            <div class="slide on"><img src="img/eb4f4307-8180-45af-a52f-f1608ca1acaf.png" alt=""><em>IMAGE 01</em><b>Living in Saikyo.<br>Living in today.</b></div>
+            <div class="slide on"><img src="img/sp_topmv_morning.jpg" alt=""><em>IMAGE 01</em><b>Living in Saikyo.<br>Living in today.</b></div>
             <div class="slide"><img src="img/eb4f4307-8180-45af-a52f-f1608ca1acaf.png" alt=""><em>IMAGE 02</em><b>新型車両「A3000系」<br>デビュー</b></div>
-            <div class="slide"><img src="img/eb4f4307-8180-45af-a52f-f1608ca1acaf.png" alt=""><em>IMAGE 03</em><b>バスと電車、暮らしを<br>もっとひとつに。</b></div>
-            <div class="slide"><img src="img/eb4f4307-8180-45af-a52f-f1608ca1acaf.png" alt=""><em>IMAGE 04</em><b>埼玉に観光という<br>新たな選択肢</b></div>
+            <div class="slide"><img src="img/sp_topmv_morning.jpg" alt=""><em>IMAGE 03</em><b>バスと電車、暮らしを<br>もっとひとつに。</b></div>
+            <div class="slide"><img src="img/sp_topmv_morning.jpg" alt=""><em>IMAGE 04</em><b>埼玉に観光という<br>新たな選択肢</b></div>
             <div class="dots"><i class="on"></i><i></i><i></i><i></i></div>
         </div>
 
@@ -47,9 +47,46 @@
                 <button aria-pressed="false" data-c="キャンペーン">キャンペーン</button>
                 <button aria-pressed="false" data-c="運行">運行</button>
                 <button aria-pressed="false" data-c="イベント">イベント</button>
+                <button aria-pressed="false" data-c="工事">工事</button>
                 <button aria-pressed="false" data-c="IRニュース">IRニュース</button>
             </div>
             <div class="feed" id="feed"></div>
+        </section>
+
+        <section id="spot">
+        <h2>暮らす<span>LIVING</span></h2>
+        <div class="sp-grid">
+            <!-- 暮らす -->
+            <a href="#spot" class="sp-card" data-s="live">
+            <div class="sp-img"><span class="sp-chip">新宿駅</span></div>
+            <div class="sp-body"><small>ショッピング</small><h3>パルポート･埼京新宿本店</h3><p>ターミナル駅直結の大型ショッピングモールと百貨店。</p></div>
+            </a>
+            <a href="#spot" class="sp-card" data-s="live">
+            <div class="sp-img"><span class="sp-chip">桜台駅</span></div>
+            <div class="sp-body"><small>住まい</small><h3>桜台レジデンス</h3><p>駅直結の分譲・賃貸マンション。通勤30分圏内で、緑豊かな街並みが魅力です。</p></div>
+            </a>
+            <a href="#spot" class="sp-card" data-s="live">
+            <div class="sp-img"><span class="sp-chip">港町駅</span></div>
+            <div class="sp-body"><small>買い物・グルメ</small><h3>港町マルシェ</h3><p>地元の鮮魚や青果が並ぶ市場。夕方には仕事帰りに立ち寄れる飲食店も開きます。</p></div>
+            </a>
+        </div><br><br>
+
+        <h2>おでかけ<span>OUTING</span></h2>
+        <div class="sp-grid">
+            <!-- おでかけ -->
+            <a href="#spot" class="sp-card" data-s="go">
+            <div class="sp-img"><span class="sp-chip">川越駅</span></div>
+            <div class="sp-body"><small>町並み</small><h3>小江戸川越</h3><p>江戸の情緒を今に残す小江戸川越のレトロな町並みで、ちょっとした非日常を楽しめます。</p></div>
+            </a>
+            <a href="#spot" class="sp-card" data-s="go">
+            <div class="sp-img"><span class="sp-chip">高原口駅</span></div>
+            <div class="sp-body"><small>自然・温泉</small><h3>高原の湯めぐり</h3><p>高原線で行く日帰り温泉。バス乗り放題のセット券でお得に巡れます。</p></div>
+            </a>
+            <a href="#spot" class="sp-card" data-s="go">
+            <div class="sp-img"><span class="sp-chip">城下町駅</span></div>
+            <div class="sp-body"><small>歴史・散策</small><h3>城下町レトロ散歩</h3><p>石畳の通りに古い商家が残る街。甘味処や工房を巡るモデルコースがあります。</p></div>
+            </a>
+        </div>
         </section>
 
         <section id="company">
@@ -92,7 +129,7 @@
         const D = {
             rail: {
                 lines: ['埼京本線', '緑園都市線', '高島平線', '戸田線'],
-                links: ['列車走行位置','遅延証明書','時刻表', '路線図', '駅情報', '忘れ物案内', 'きっぷ･運賃', '定期券'],
+                links: ['走行位置','遅延証明書','時刻表', '路線図', '駅情報', '有料座席指定電車', 'きっぷ･運賃', '定期券'],
                 urls: ['#','#','#','routemap.html','#','#','#','#'],
                 notices: [['9/29', '台風26号に伴う計画運休のお知らせ'], ['9/25', '駅構内工事に伴う出入口変更'], ['9/19', '9/26日は荒川花火大会のため臨時ダイヤで運行します'], ['9/16', 'ホームドア設置工事のお知らせ']]
             },
@@ -121,14 +158,18 @@
             ['お知らせ', '新型車両A3000系、営業運転を開始', '省エネ性能と車内の快適性を高めた新型車両がデビューしました!!<br><img src="img/eb4f4307-8180-45af-a52f-f1608ca1acaf.png" alt="">', '9/22', '🔔'],
             ['キャンペーン', '💰️アプリ新規登録でポイントプレゼント🎁', '公式アプリをインストール→新規アカウント登録で、お買い物などに使える1000ポイントが必ず貰えるキャンペーン実施中！<br>ぜひこの機会に埼京電鉄アプリでお得で便利な生活を！<br><img src="img/appPR.jpg" alt="">', '9/20', '🎉'],
             ['IRニュース', '月次営業概況のお知らせ', '<a href="#">資料はこちら(PDF)↗</a>', '9/18', '🏢'],
-            ['イベント', '＼鳩ヶ谷フラワーフェス 開催中！／', '色とりどりの花と豊かな季節を楽しみましょう！！16日と17日の2日間の開催(雨天決行)です。<br><img src="img/zubottyDSC08011-269_TP_V.jpg" alt="">', '9/15', '🎪'],
+            ['工事', '舟渡駅にホームドアを設置します！', '詳細は以下よりご確認ください。<br><a href="#">舟渡駅-ホームドア設置工事(PDF)↗</a>', '9月15日', '⚒️'],
+            ['イベント', '＼鳩ヶ谷フラワーフェス 開催中！／', '色とりどりの花と豊かな季節を楽しみましょう！！16日と17日の2日間の開催(雨天決行)です。<br><img src="img/zubottyDSC08011-269_TP_V.jpg" alt="">', '9/13', '🎪'],
             ['運行', '台風接近に伴う運転計画について', '台風の影響により、一部の列車およびバスに運休や遅れが発生する可能性があります。', '8/30', '🚃'],
-            ['IRニュース', '2027年3月期 第1四半期決算説明資料', '<a href="#">資料はこちら(PDF)↗</a>', '8/23', '🏢']];
+            ['IRニュース', '2027年3月期 第1四半期決算説明資料', '<a href="#">資料はこちら(PDF)↗</a>', '8/23', '🏢'],
+            ['工事', '川口駅～鳩ヶ谷駅間 連続立体交差事業の概要', '工事概要は以下よりご確認ください。また、工事の進捗や詳細についてはこちらより随時お知らせいたします。<br><a href="#">川口駅～鳩ヶ谷駅間 連続立体交差事業の概要↗</a>', '3月12日', '⚒️'],
+        ];
         $('#feed').innerHTML = N.map(n => `<article class="post" data-c="${n[0]}"><div class="av">${n[4]}</div><div class="pb"><div class="pn"><b>${n[0]}</b><span>${n[3]}</span></div><p class="pt"><b>${n[1]}</b><br>${n[2]}</p></div></article>`).join('');
         $$('#filter button').forEach(b => b.onclick = () => {
             $$('#filter button').forEach(x => x.setAttribute('aria-pressed', x === b));
             $$('.post').forEach(p => p.hidden = b.dataset.c !== 'all' && p.dataset.c !== b.dataset.c)
         });
+
     </script>
 </body>
 
