@@ -702,8 +702,8 @@ footer small {
         --nw: 0px
     }
 
-    main {
-        padding-top: 0;
+    .index-main {
+        padding-top: 0px;
     }
 
     header {
